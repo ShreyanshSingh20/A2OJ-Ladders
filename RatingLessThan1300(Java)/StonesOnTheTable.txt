@@ -1,0 +1,25 @@
+import java.util.*;
+public class StonesOnTheTable {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        String str=sc.nextLine();
+        Stack<Character> s=new Stack<Character>();
+        s.push(str.charAt(0));
+        n--;
+        int count=0;
+        int i=0;
+        while(n!=0) {
+        	i++;
+        	char v=str.charAt(i);
+        	if(v==s.peek()) count++;
+        	else s.push(v);
+        	n--;
+        }
+        
+        System.out.println(count);
+	}
+
+}

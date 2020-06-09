@@ -1,0 +1,26 @@
+import java.util.*;
+public class YoungPhysicst {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int resx=0;
+		int resy=0;
+		int resz=0;
+		for(int i=0;i<n;i++) {
+			int x=sc.nextInt();
+		    int y=sc.nextInt();
+			int z=sc.nextInt();
+			resx=resx+x;
+			resy=resy+y;
+			resz=resz+z;
+		}
+		if(resx==0&&resy==0&&resz==0) {
+			System.out.println("YES");
+		}else {
+			System.out.println("NO");
+		}
+
+	}
+
+}
