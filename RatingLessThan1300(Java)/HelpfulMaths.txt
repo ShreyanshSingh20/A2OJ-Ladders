@@ -1,0 +1,35 @@
+import java.util.*;
+import java.math.BigInteger;
+public class HelpfulMaths {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.nextLine();
+		
+		String ns="";
+		for(int i=0;i<str.length();i++) {
+			if(str.charAt(i)=='1'||str.charAt(i)=='2'||str.charAt(i)=='3') {
+			ns=ns+str.charAt(i);
+			}
+		}
+		BigInteger number= new BigInteger(ns);
+		List<BigInteger> l=new ArrayList<BigInteger>();
+		while(number.compareTo(BigInteger.ZERO)==1) {
+			BigInteger q=number.mod(BigInteger.TEN);
+			number=number.divide(BigInteger.TEN);
+			l.add(q);
+		}
+		
+		Collections.sort(l);
+		
+		System.out.print(l.remove(0));
+		
+		if(l.isEmpty()==false) {
+			for(BigInteger x:l) {
+				System.out.print("+"+x);
+			}
+		}
+		
+	}
+
+}

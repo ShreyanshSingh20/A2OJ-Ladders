@@ -1,0 +1,39 @@
+import java.util.*;
+public class Cupboards {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int l1=0;
+		int l0=0;
+		int r1=0;
+		int r0=0;
+		
+		int matrix[][]=new int[n][2];
+		for(int i=0;i<n;i++) {
+			int j=0;
+			while(j<2) {
+				matrix[i][j]=sc.nextInt();
+				j++;
+			}
+			if(matrix[i][0]==1) l1++;
+			else l0++;
+			
+			if(matrix[i][1]==1) r1++;
+			else r0++;
+		}
+		int ans=0;
+		//left doors
+		if(l1>l0) ans=ans+l0;
+		else ans=ans+l1;
+		
+		//RightDoors
+		if(r1>r0) ans=ans+r0;
+		else ans=ans+r1;
+		
+		
+		System.out.println(ans);
+
+	}
+
+}
