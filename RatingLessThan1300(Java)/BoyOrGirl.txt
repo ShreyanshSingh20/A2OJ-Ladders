@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class BoyOrGirl {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.nextLine();
+		List<Character> l=new ArrayList<Character>();
+		l.add(str.charAt(0));
+		int count=1;
+		for(int i=1;i<str.length();i++) {
+			if(l.contains(str.charAt(i))==false) {
+				count++;
+				l.add(str.charAt(i));
+			}
+		}
+		
+		if(count%2==0) {
+			System.out.println("CHAT WITH HER!");
+		}else {
+			System.out.print("IGNORE HIM!");
+		}
+		
+
+	}
+
+}

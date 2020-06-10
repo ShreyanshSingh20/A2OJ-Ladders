@@ -1,0 +1,28 @@
+import java.util.*;
+import java.math.*;
+public class SoftDrinking {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		BigInteger arr[]=new BigInteger[8];
+		for(int i=0;i<8;i++) {
+			arr[i]=sc.nextBigInteger();
+		}
+		
+		BigInteger totaldrink=arr[1].multiply(arr[2]);
+		
+		BigInteger totaltoasts=totaldrink.divide(arr[6]);
+		
+		BigInteger totalLimes=arr[3].multiply(arr[4]);
+		
+		BigInteger salt=arr[5].divide(arr[7]);
+		
+		BigInteger ans1= totaltoasts.min(totalLimes);
+		BigInteger ans2=ans1.min(salt);
+		
+		System.out.println(ans2.divide(arr[0]));
+		
+
+	}
+
+}

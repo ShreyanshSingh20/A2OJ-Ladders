@@ -1,0 +1,30 @@
+import java.util.*;
+public class WayTooLongWords {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int t=sc.nextInt();
+		
+		for(int i=0;i<t+1;i++) {
+			while(sc.hasNextLine()) {
+			String str=sc.nextLine();
+			
+			
+			char c[]=str.toCharArray();
+			int len=str.length();
+			if(len>10) {
+				System.out.print(c[0]+""+(len-2)+""+c[len-1]);
+				System.out.println();
+				
+			}
+			else {
+				System.out.println(str);
+				
+			}
+		}
+		}
+		
+	}
+
+}
