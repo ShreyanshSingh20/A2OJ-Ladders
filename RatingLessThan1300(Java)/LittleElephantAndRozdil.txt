@@ -1,0 +1,23 @@
+import java.util.*;
+public class LittleElephantAndRozdil {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		ArrayList<Integer> a=new ArrayList<Integer>();
+		for(int i=0;i<n;i++) {
+			a.add(sc.nextInt());
+			}
+		
+		int minimum=Collections.min(a);
+		int index=a.indexOf(minimum);
+		a.remove(index);
+		if(a.contains(minimum)) {
+			System.out.println("Still Rozdil");
+		}else {
+			System.out.println(index+1);
+		}
+
+	}
+
+}
