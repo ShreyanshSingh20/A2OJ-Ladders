@@ -1,0 +1,44 @@
+package numberTheory;
+import java.util.*;
+public class NoOfDivisors {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		System.out.println(noOfDivisors(n));
+		
+
+	}
+	
+	static int noOfDivisors(int n) {
+		//Seive Of Eratosthenes to highlight all prime numbers upto n
+		boolean prime[]=new boolean[n+1];
+		Arrays.fill(prime,true);
+		for(int i=2;i*i<n;i++) {
+			if(prime[i]==true) {
+				for(int j=2*i;j<n;j=j+i) {
+					prime[j]=false;
+				}
+			}
+		}
+		
+		//if n=p1^x1 * p2^x2 * p3^x3............*pk^xk
+		//then no.of divisors of n=(x1+1)(x2+1)(x3+1)(x4+1).......(xk+1)
+		int divisors=1;
+		for(int i=2;i<=n;i++) {
+			if(prime[i]==true) {
+				int count=0;
+				if(n%i==0) {
+					while(n%i==0) {
+						n=n/i;
+						count++;
+					}
+					divisors=divisors*(count+1);
+				}
+			}
+		}
+		
+		return divisors;
+	}
+
+}
