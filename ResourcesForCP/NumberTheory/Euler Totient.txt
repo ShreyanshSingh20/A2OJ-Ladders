@@ -2,26 +2,29 @@
 
 package numberTheory;
 import java.util.*;
+import java.math.*;
 public class EulerTotient {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		int n=sc.nextInt();
 		
-		int ans=n;
+		float ans=n;
 		for(int i=2;i*i<=n;i++) {
 			if(n%i==0) {
 				while(n%i==0) {
 					n=n/i;
-					ans=ans-ans/i;
 				}
+				ans=ans*((float)1-((float)1/(float)i));	
 			}
 		}
 		
-		if(n>1) ans=ans-ans/n;
+		if(n>1) ans=ans*((float)1-((float)1/(float)n));
 		
-		System.out.println(ans);
+		System.out.println((int)ans);
+		System.out.println();
 
 	}
 
 }
+

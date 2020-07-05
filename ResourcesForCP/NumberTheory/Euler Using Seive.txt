@@ -1,0 +1,38 @@
+//TC====>>0(loglog(n))
+package numberTheory;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class EulerUsingSeive {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		//SEIVE 
+		int count=0;
+		boolean isCoPrime[]=new boolean[n+1];
+		Arrays.fill(isCoPrime,true);
+		for(int i=1;i<=n;i++) {
+			if(gcd(i,n)!=1&&isCoPrime[i]==true) {
+				isCoPrime[i]=false;
+				count++;
+				for(int j=i*2;j<=n;j=j+i) {
+					if(isCoPrime[j]==true) {
+					isCoPrime[j]=false;
+					count++;
+					}
+				}
+			}
+		}
+		
+		System.out.println(n-count);
+
+	}
+	
+	static int gcd(int a,int b) {
+		if(b==0) return a;
+		return gcd(b,a%b);
+	}
+
+}
