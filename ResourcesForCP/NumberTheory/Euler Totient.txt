@@ -13,15 +13,15 @@ public class EulerTotient {
 			if(n%i==0) {
 				while(n%i==0) {
 					n=n/i;
-				
 				}
-		        ans=ans*((float)1-((float)1/(float)i));		
+				ans=ans*(1-(1/(float)i));	
 			}
 		}
 		
-		if(n>1) ans=ans*((float)1-((float)1/(float)i));
+		if(n>1) ans=ans*(1-(1/(float)n));
 		
-		System.out.println(ans);
+		System.out.println((int)Math.ceil(ans));
+	
 
 	}
 
