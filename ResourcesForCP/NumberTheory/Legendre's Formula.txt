@@ -1,0 +1,31 @@
+//For any prime number p and any positive integer n, find the largest power of p that divides n! 
+
+package numberTheory;
+import java.util.*;
+public class LegendresFormula {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t-->0) {
+			int n=sc.nextInt();
+			int p=sc.nextInt();
+			
+			System.out.println(((n-binary(n))/(p-1)));
+			
+		}
+
+	}
+	
+	static int binary(int n) {
+		int sum=0;
+		while(n > 0)
+        {
+            int a = n % 2;
+            sum=sum+a;
+            n = n / 2;
+        }
+		return sum;
+	}
+
+}
