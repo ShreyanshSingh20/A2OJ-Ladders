@@ -21,8 +21,10 @@ public class NaivePatternSearching {
 				while (k < m - 1) {
 					j++;
 					k++;
-					if (str.charAt(j) != pat.charAt(k))
+					if (str.charAt(j) != pat.charAt(k)){
+                                                flag=false;
 						break;
+                                        }
 					else
 						flag = true;
 				}
