@@ -1,0 +1,48 @@
+//TC===>Theta(n)
+
+package strings;
+
+import java.util.*;
+
+public class ImprovedNaivePatternSearching {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		String pat = sc.nextLine();
+		int n = str.length();
+		int m = pat.length();
+
+		for (int i = 0; i < n - m + 1;) {
+			boolean flag = false;
+			int j = i;
+			int k = 0;
+			if (str.charAt(j) == pat.charAt(k)) {
+				while (k < m - 1) {
+					j++;
+					k++;
+					if (str.charAt(j) != pat.charAt(k)) {
+						flag = false;
+						i = i + k;
+						break;
+					} else {
+						flag = true;
+					}
+				}
+
+				if (flag == true) {
+					System.out.print(i + " ");
+					i++;
+				}
+
+			} else
+				i++;
+
+			if (m == 1 && str.charAt(j) == pat.charAt(k))
+				System.out.print(i + " ");
+
+		}
+
+	}
+
+}
