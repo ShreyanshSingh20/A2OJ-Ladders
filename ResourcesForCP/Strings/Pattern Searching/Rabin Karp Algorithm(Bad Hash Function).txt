@@ -1,0 +1,48 @@
+//Worst Case TC==>O(m*m*(n-m+1))
+
+package strings;
+
+import java.util.*;
+
+public class RKABadHashFunction {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		String pat = sc.nextLine();
+		int n = str.length();
+		int m = pat.length();
+
+		// hash function of pattern
+		int p = 0;
+		for (int i = 0; i < m; i++) {
+			p = p + (int) pat.charAt(i);
+		}
+
+		for (int i = 0; i < n - m + 1; i++) {
+			boolean flag = false;
+			int t = 0;
+			int s = i;
+			int q = 0;
+			for (int j = i; j < i + m; j++) {
+				t = t + (int) str.charAt(j);
+			}
+			if (t == p) {
+				while (q < m) {
+					if (str.charAt(s) != pat.charAt(q)) {
+						flag = false;
+						break;
+					} else
+						flag = true;
+
+					s++;
+					q++;
+				}
+			}
+
+			if (flag == true)
+				System.out.print(i + " ");
+		}
+	}
+
+}
