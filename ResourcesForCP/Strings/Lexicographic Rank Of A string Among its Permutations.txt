@@ -1,0 +1,42 @@
+//tc===>O(N*256)~~~~Linear
+
+package strings;
+import java.util.*;
+public class LexicographicalRankOfString {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.nextLine();
+		int n=str.length();
+		int fa[]=new int[256];
+		for(int i=0;i<n;i++) {
+			fa[str.charAt(i)]++;
+		}
+		
+		for(int i=1;i<256;i++) {
+			fa[i]=fa[i]+fa[i-1];
+		}
+		
+		int mun=fac(n);
+		int res=1;
+		for(int i=0;i<n;i++) {
+			mun=mun/(n-i);
+			res=res+fa[str.charAt(i)-1]*mun;
+			for(int j=str.charAt(i);j<256;j++) {
+				fa[j]--;
+			}
+			
+			
+		}
+		
+		System.out.println(res);
+	
+
+	}
+	
+	static int fac(int n) {
+		if(n==0||n==1) return 1;
+		else return n*fac(n-1);
+	}
+
+}
