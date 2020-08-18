@@ -61,7 +61,7 @@ public class FractionalKnapsack {
 				cap=cap-a.get(i).weight;
 			}
 			else {
-				ans=ans+(cap*(a.get(i).points/a.get(i).weight));
+				ans=ans+(int)((double)cap*((double)a.get(i).points/(double)a.get(i).weight));
 				break;
 			}
 			
